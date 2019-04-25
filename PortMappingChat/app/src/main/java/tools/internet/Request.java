@@ -91,7 +91,7 @@ public class Request {
         } catch (IOException e) {
             e.printStackTrace();
         }
-        Log.i("ReceiveStr:",result);
+        Log.i("ReceiveStr:", result);
         Message message = new Message();
         Bundle data = new Bundle();
         data.putString("resultStr", result);

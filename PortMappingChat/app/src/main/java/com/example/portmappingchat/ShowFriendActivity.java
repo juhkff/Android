@@ -25,6 +25,7 @@ import java.net.SocketAddress;
 import java.net.SocketException;
 import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.Iterator;
 import java.util.Map;
 
 import tools.internet.ReceiveThread;
@@ -103,7 +104,7 @@ public class ShowFriendActivity extends AppCompatActivity {
 
         @Override
         public void run() {
-            byte[] sendBys = ("Chat:" + userName).getBytes();
+            byte[] sendBys = ("RequestChat:" + userName).getBytes();
             DatagramPacket datagramPacket = new DatagramPacket(sendBys, sendBys.length, socketAddress);
             //datagramPacket.setData(sendBys, 0, sendBys.length);
             try {
@@ -167,6 +168,29 @@ public class ShowFriendActivity extends AppCompatActivity {
         }
     }
 
+    private class PunchThread implements Runnable {
+        private String anotherIP;
+        private int anotherPort;
+
+        public PunchThread(String socketAdrStr) {
+            anotherIP = socketAdrStr.substring(1, socketAdrStr.length() - 1).split(":")[0];
+            anotherPort = Integer.parseInt(socketAdrStr.split(":")[1]);
+            Log.i("Punch的地址", anotherIP + "\t" + anotherPort);
+        }
+
+        @Override
+        public void run() {
+            byte[] sendBys = ("Punch:" + userName).getBytes();  //有时对方是收不到该消息的
+            SocketAddress anotherSocketAddress = new InetSocketAddress(anotherIP, anotherPort);
+            DatagramPacket datagramPacket = new DatagramPacket(sendBys, sendBys.length, anotherSocketAddress);
+            try {
+                datagramSocket.send(datagramPacket);
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
+        }
+    }
+
     Handler handler = new Handler() {
         @Override
         public void handleMessage(Message msg) {
@@ -212,6 +236,52 @@ public class ShowFriendActivity extends AppCompatActivity {
             for (String each : list) {
                 friendsListAdapter.add(each);
             }
+            new Thread(new Runnable() {
+                @Override
+                public void run() {
+                    while (true) {
+                        Request request = new Request("home/GetList", handler4);
+                        Map<String, String> param = new HashMap<String, String>();
+                        param.put("userName", userName);
+                        try {
+                            request.post(param);
+                            Thread.sleep(1000 * 3);
+                        } catch (IOException e) {
+                            e.printStackTrace();
+                        } catch (InterruptedException e) {
+                            e.printStackTrace();
+                        }
+                    }
+                }
+            }).start();
+        }
+    };
+
+    Handler handler4 = new Handler() {
+        @Override
+        public void handleMessage(Message msg) {
+            super.handleMessage(msg);
+            Bundle data = msg.getData();
+            String resultStr = data.getString("resultStr");
+            Log.d("获得联系人列表定时更新结果:", resultStr);
+            Gson gson = new GsonBuilder().enableComplexMapKeySerialization().create();
+            ArrayList<String> newlist = new Gson().fromJson(resultStr, new TypeToken<ArrayList<String>>() {
+            }.getType());
+            for (String each : newlist) {
+                if (!list.contains(each)) {
+                    friendsListAdapter.add(each);
+                    list.add(each);
+                }
+            }
+            Iterator<String> iterator = list.iterator();
+            while (iterator.hasNext()) {
+                String cur = iterator.next();
+                if (!newlist.contains(cur)) {
+                    iterator.remove();
+                    friendsListAdapter.remove(cur);
+                }
+            }
+            friendsListAdapter.notifyDataSetChanged();
         }
     };
 
@@ -235,13 +305,17 @@ public class ShowFriendActivity extends AppCompatActivity {
                 default:
                     if (message.startsWith("ChatAddress")) {
                         message = message.split(":", 2)[1];
+                        new Thread(new PunchThread(message)).start();   //自己也要打洞?
                         Intent intent = new Intent(ShowFriendActivity.this, ChatActivity.class);
                         intent.putExtra("userName", userName);
                         intent.putExtra("anotherUserName", anotherUserName);
                         intent.putExtra("address", message);
                         startActivity(intent);
                     } else if (message.startsWith("Chat")) {
-                        Toast.makeText(ShowFriendActivity.this, "收到" + message.split(":")[1] + "的消息", Toast.LENGTH_SHORT).show();
+                        Toast.makeText(ShowFriendActivity.this, message.split(":")[1] + "说:" + message.split(":")[2], Toast.LENGTH_SHORT).show();
+                    } else if (message.startsWith("RequestChat")) {
+                        message = message.split(":", 2)[1];
+                        new Thread(new PunchThread(message)).start();
                     } else {
                         Toast.makeText(ShowFriendActivity.this, "通信机制发生未知错误...", Toast.LENGTH_SHORT).show();
                     }

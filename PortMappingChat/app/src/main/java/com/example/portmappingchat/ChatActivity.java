@@ -45,7 +45,7 @@ public class ChatActivity extends AppCompatActivity {
 
     @Override
     public void onBackPressed() {
-        //ReceiveThread.removeChatHandler();
+        ReceiveThread.removeChatHandler();
         super.onBackPressed();                                                                       /**?*/
     }
 
@@ -75,6 +75,7 @@ public class ChatActivity extends AppCompatActivity {
         this.listView = findViewById(R.id.listView1);
         chatMessages = new ArrayList<ChatMessage>();
         this.listAdapter = new ChatAdapter(chatMessages, ChatActivity.this);
+        listView.setAdapter(listAdapter);
         ReceiveThread.setChatHandler(handler);
         editText1 = findViewById(R.id.editText1);
         button1 = findViewById(R.id.button1);
@@ -84,7 +85,7 @@ public class ChatActivity extends AppCompatActivity {
     private View.OnClickListener sendButtonClick = new View.OnClickListener() {
         @Override
         public void onClick(View v) {
-            final String message = String.valueOf(button1.getText());
+            final String message = String.valueOf(editText1.getText());
             if (message != null && message.length() > 0) {
                 new Thread(new Runnable() {
                     @Override
@@ -96,13 +97,12 @@ public class ChatActivity extends AppCompatActivity {
                         try {
                             ShowFriendActivity.getDatagramSocket().send(datagramPacket);
                             chatMessages.add(new ChatMessage(true, message));
-                            listAdapter.notifyDataSetChanged();
                         } catch (IOException e) {
                             e.printStackTrace();
                         }
                     }
                 }).start();
-                button1.setText("");
+                editText1.setText("");
             } else {
                 //没有信息发送
             }

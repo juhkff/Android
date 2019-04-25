@@ -72,6 +72,15 @@ public class ReceiveThread implements Runnable {
                     data.putString("receiveStr", receiveStr);
                     message.setData(data);
                     handler.sendMessage(message);
+                } else if (receiveStr.startsWith("RequestChat")) {
+                    String addr = receiveStr.split(":", 2)[1]; //拿到要打洞的地址
+                    Log.i("获得要打洞的地址", addr);
+                    data.putString("receiveStr", receiveStr);
+                    message.setData(data);
+                    handler.sendMessage(message);
+                } else if (receiveStr.startsWith("Punch")) {
+                    String anotherUserName = receiveStr.split(":", 2)[1];
+                    Log.w("被用户" + anotherUserName + "打洞", "full-core时可接收到,非对称时该步可能无法打成但不影响结果");
                 } else if (receiveStr.equals("Offline")) {
                     data.putString("receiveStr", receiveStr);
                     message.setData(data);
@@ -111,7 +120,7 @@ public class ReceiveThread implements Runnable {
                 DatagramPacket datagramPacket = new DatagramPacket(sendBys, sendBys.length, socketAddress);
                 try {
                     datagramSocket.send(datagramPacket);
-                    Thread.sleep(1000 * 3);
+                    Thread.sleep(1000 * 30);
                 } catch (IOException e) {
                     e.printStackTrace();
                 } catch (InterruptedException e) {
