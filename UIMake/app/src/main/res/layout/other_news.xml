@@ -1,0 +1,129 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="@dimen/text_margin"
+        android:orientation="vertical">
+
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="40dp"
+            android:orientation="vertical">
+            <TextView
+                android:id="@+id/time"
+                android:layout_width="wrap_content"
+                android:layout_height="20dp"
+                android:text="@string/time"
+                android:textSize="18dp" />
+        </LinearLayout>
+
+        <TextView
+            android:id="@+id/text_content"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="正文addddddddd"
+            android:textSize="20dp" />
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <ImageView
+                android:id="@+id/attached_img"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerInParent="true"
+                android:src="@drawable/female" />
+        </RelativeLayout>
+    </LinearLayout>
+
+    <!--操作区-->
+    <LinearLayout
+        android:id="@+id/main_bottom_bar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        tools:ignore="DisableBaselineAlignment">
+
+        <com.google.android.flexbox.FlexboxLayout
+            android:id="@+id/bottom_bar_1_btn"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            app:alignItems="center"
+            app:justifyContent="center">
+
+            <ImageView
+                android:id="@+id/bottom_bar_image_1"
+                android:layout_width="@dimen/opLength"
+                android:layout_height="@dimen/opLength"
+                android:src="@drawable/distribution" />
+
+            <TextView
+                android:id="@+id/bottom_bar_text_1"
+                android:layout_width="wrap_content"
+                android:layout_height="@dimen/opLength"
+                android:text="button_1"
+                android:textSize="@dimen/opTextSize" />
+        </com.google.android.flexbox.FlexboxLayout>
+
+        <com.google.android.flexbox.FlexboxLayout
+            android:id="@+id/bottom_bar_2_btn"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            app:alignItems="center"
+            app:justifyContent="center">
+
+            <ImageView
+                android:id="@+id/bottom_bar_image_2"
+                android:layout_width="@dimen/opLength"
+                android:layout_height="@dimen/opLength"
+                android:src="@drawable/comment" />
+
+            <TextView
+                android:id="@+id/bottom_bar_text_2"
+                android:layout_width="wrap_content"
+                android:layout_height="@dimen/opLength"
+                android:text="button_1"
+                android:textSize="@dimen/opTextSize" />
+        </com.google.android.flexbox.FlexboxLayout>
+
+        <com.google.android.flexbox.FlexboxLayout
+            android:id="@+id/bottom_bar_3_btn"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            app:alignItems="center"
+            app:justifyContent="center">
+
+            <ImageView
+                android:id="@+id/bottom_bar_image_3"
+                android:layout_width="@dimen/opLength"
+                android:layout_height="@dimen/opLength"
+                android:src="@drawable/like" />
+
+            <TextView
+                android:id="@+id/bottom_bar_text_3"
+                android:layout_width="wrap_content"
+                android:layout_height="@dimen/opLength"
+                android:text="button_1"
+                android:textSize="@dimen/opTextSize" />
+        </com.google.android.flexbox.FlexboxLayout>
+    </LinearLayout>
+    <ImageView
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/separator"
+        android:background="@color/separator"
+        android:layout_marginLeft="@dimen/text_margin"
+        android:layout_marginRight="@dimen/text_margin"/>
+
+</LinearLayout>

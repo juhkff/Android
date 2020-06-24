@@ -1,0 +1,194 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="@dimen/text_margin"
+        android:layout_marginRight="@dimen/text_margin"
+        android:orientation="vertical">
+
+        <com.google.android.flexbox.FlexboxLayout
+            android:layout_width="match_parent"
+            android:layout_height="40dp"
+            app:alignItems="center"
+            app:flexDirection="row"
+            app:justifyContent="space_between">
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content">
+
+                <ImageView
+                    android:id="@+id/user_img"
+                    android:layout_width="40dp"
+                    android:layout_height="40dp"
+                    android:src="@drawable/user_example" />
+
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="40dp"
+                    android:layout_toEndOf="@id/user_img"
+                    android:layout_toRightOf="@id/user_img"
+                    android:orientation="vertical">
+
+                    <TextView
+                        android:id="@+id/text_name"
+                        android:layout_width="wrap_content"
+                        android:layout_height="20dp"
+                        android:text="name1"
+                        android:textSize="18dp" />
+
+                    <TextView
+                        android:id="@+id/text_honor"
+                        android:layout_width="wrap_content"
+                        android:layout_height="20dp"
+                        android:text="name2"
+                        android:textSize="18dp" />
+                </LinearLayout>
+            </LinearLayout>
+
+            <!--<Button
+                android:id="@+id/button"
+                android:layout_width="@dimen/button_width"
+                android:layout_height="@dimen/button_height"
+                android:layout_alignParentEnd="true"
+                android:layout_alignParentRight="true"
+                android:background="@drawable/button_shape"
+                android:text="@string/focus"
+                android:textColor="@color/orange"
+                android:textSize="@dimen/button_size" />-->
+        </com.google.android.flexbox.FlexboxLayout>
+
+        <TextView
+            android:id="@+id/text_content"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="正文addddddddd"
+            android:textSize="20dp" />
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <ImageView
+                android:id="@+id/attached_img"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerInParent="true"
+                android:src="@drawable/female" />
+        </RelativeLayout>
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/textSep"
+        android:background="@color/white"
+        android:orientation="horizontal"
+        tools:ignore="DisableBaselineAlignment">
+
+        <com.google.android.flexbox.FlexboxLayout
+            android:id="@+id/dis"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            app:alignItems="center"
+            app:justifyContent="space_between">
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content">
+
+                <com.google.android.flexbox.FlexboxLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="@dimen/button_height"
+                    android:orientation="horizontal"
+                    android:paddingLeft="@dimen/text_margin"
+                    android:paddingRight="@dimen/text_margin"
+                    app:alignItems="center"
+                    app:justifyContent="center">
+
+                    <TextView
+                        android:id="@+id/dis_text"
+                        android:layout_width="wrap_content"
+                        android:layout_height="@dimen/opLength"
+                        android:text="@string/distribution"
+                        android:textSize="@dimen/opTextSize"
+                        tools:ignore="SpUsage" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="@dimen/opLength"
+                        android:layout_marginLeft="@dimen/textSep"
+                        android:text="10"
+                        android:textSize="@dimen/opTextSize" />
+                </com.google.android.flexbox.FlexboxLayout>
+
+                <com.google.android.flexbox.FlexboxLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="@dimen/button_height"
+                    android:orientation="horizontal"
+                    android:paddingLeft="@dimen/text_margin"
+                    android:paddingRight="@dimen/text_margin"
+                    app:alignItems="center"
+                    app:justifyContent="center">
+
+                    <TextView
+                        android:id="@+id/comment_text"
+                        android:layout_width="wrap_content"
+                        android:layout_height="@dimen/opLength"
+                        android:text="@string/comment"
+                        android:textSize="@dimen/opTextSize"
+                        tools:ignore="SpUsage" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="@dimen/opLength"
+                        android:layout_marginLeft="@dimen/textSep"
+                        android:text="10"
+                        android:textSize="@dimen/opTextSize" />
+                </com.google.android.flexbox.FlexboxLayout>
+            </LinearLayout>
+
+            <com.google.android.flexbox.FlexboxLayout
+                android:layout_width="wrap_content"
+                android:layout_height="@dimen/button_height"
+                android:orientation="horizontal"
+                android:paddingLeft="@dimen/text_margin"
+                android:paddingRight="@dimen/text_margin"
+                app:alignItems="center"
+                app:justifyContent="center">
+
+                <TextView
+                    android:id="@+id/like_text"
+                    android:layout_width="wrap_content"
+                    android:layout_height="@dimen/opLength"
+                    android:text="@string/like"
+                    android:textSize="@dimen/opTextSize"
+                    tools:ignore="SpUsage" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="@dimen/opLength"
+                    android:layout_marginLeft="@dimen/textSep"
+                    android:text="10"
+                    android:textSize="@dimen/opTextSize" />
+            </com.google.android.flexbox.FlexboxLayout>
+        </com.google.android.flexbox.FlexboxLayout>
+    </LinearLayout>
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/list"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="@dimen/text_margin"
+        android:layout_marginRight="@dimen/layout_margin"
+        tools:context=".CommentFragment"
+        tools:listitem="@layout/comment_item" />
+</LinearLayout>

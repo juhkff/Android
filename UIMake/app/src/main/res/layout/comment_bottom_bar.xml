@@ -1,0 +1,90 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="@drawable/bottombar_border"
+    android:orientation="vertical">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        tools:ignore="DisableBaselineAlignment">
+
+        <com.google.android.flexbox.FlexboxLayout
+            android:id="@+id/dis"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/textSep2"
+            android:layout_marginBottom="@dimen/textSep2"
+            android:layout_weight="1"
+            android:background="@drawable/bottombar_separator"
+            app:alignItems="center"
+            app:justifyContent="center">
+
+            <ImageView
+                android:layout_width="@dimen/opLength2"
+                android:layout_height="@dimen/opLength2"
+                android:src="@drawable/distribution" />
+
+            <TextView
+                android:id="@+id/dis_text"
+                android:layout_width="wrap_content"
+                android:layout_height="@dimen/opLength2"
+                android:text="@string/distribution"
+                android:textSize="@dimen/opTextSize2"
+                tools:ignore="SpUsage" />
+        </com.google.android.flexbox.FlexboxLayout>
+
+        <com.google.android.flexbox.FlexboxLayout
+            android:id="@+id/comment"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/textSep2"
+            android:layout_marginBottom="@dimen/textSep2"
+            android:layout_weight="1"
+            android:background="@drawable/bottombar_separator"
+            app:alignItems="center"
+            app:justifyContent="center">
+
+            <ImageView
+                android:layout_width="@dimen/opLength2"
+                android:layout_height="@dimen/opLength2"
+                android:src="@drawable/comment" />
+
+            <TextView
+                android:id="@+id/comment_text"
+                android:layout_width="wrap_content"
+                android:layout_height="@dimen/opLength2"
+                android:text="@string/comment"
+                android:textSize="@dimen/opTextSize2"
+                tools:ignore="SpUsage" />
+        </com.google.android.flexbox.FlexboxLayout>
+
+        <com.google.android.flexbox.FlexboxLayout
+            android:id="@+id/like"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/textSep2"
+            android:layout_marginBottom="@dimen/textSep2"
+            android:layout_weight="1"
+            app:alignItems="center"
+            app:justifyContent="center">
+
+            <ImageView
+                android:layout_width="@dimen/opLength2"
+                android:layout_height="@dimen/opLength2"
+                android:src="@drawable/like" />
+
+            <TextView
+                android:id="@+id/like_text"
+                android:layout_width="wrap_content"
+                android:layout_height="@dimen/opLength2"
+                android:text="@string/like"
+                android:textSize="@dimen/opTextSize2"
+                tools:ignore="SpUsage" />
+        </com.google.android.flexbox.FlexboxLayout>
+    </LinearLayout>
+</LinearLayout>

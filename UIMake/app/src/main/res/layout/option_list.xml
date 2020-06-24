@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+    <ImageView
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/separator"
+        android:background="@color/separator" />
+
+    <TextView
+        android:background="@drawable/topbar_border"
+        android:id="@+id/name"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:padding="@dimen/textSep"
+        android:text="@string/changeUserName"
+        android:textSize="@dimen/opTextSize3" />
+    <TextView
+        android:background="@drawable/topbar_border"
+        android:id="@+id/passWord"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:padding="@dimen/textSep"
+        android:text="@string/changePassWord"
+        android:textSize="@dimen/opTextSize3" />
+    <TextView
+        android:id="@+id/honor"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:padding="@dimen/textSep"
+        android:text="@string/changeHonor"
+        android:textSize="@dimen/opTextSize3" />
+    <ImageView
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/separator"
+        android:background="@color/separator" />
+    <TextView
+        android:id="@+id/about"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:padding="@dimen/textSep"
+        android:text="@string/about"
+        android:textSize="@dimen/opTextSize3" />
+</LinearLayout>

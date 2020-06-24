@@ -1,0 +1,251 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+
+        <com.google.android.flexbox.FlexboxLayout
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/textLength"
+            android:layout_margin="@dimen/separator"
+            app:alignItems="center">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:gravity="center_horizontal|center_vertical"
+                android:text="示例图"
+                android:textSize="@dimen/opTextSize3" />
+
+            <ImageView
+                android:id="@+id/button_1"
+                android:layout_width="@dimen/textLength"
+                android:layout_height="@dimen/textLength"
+                android:layout_marginLeft="@dimen/separator"
+                android:src="@drawable/add" />
+        </com.google.android.flexbox.FlexboxLayout>
+
+        <com.google.android.flexbox.FlexboxLayout
+            android:id="@+id/img_container"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="@dimen/separator"
+            app:alignItems="center"
+            app:flexWrap="wrap"
+            app:justifyContent="center">
+
+            <ImageView
+                android:id="@+id/img"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                app:layout_maxHeight="250dp" />
+        </com.google.android.flexbox.FlexboxLayout>
+
+        <com.google.android.flexbox.FlexboxLayout
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/textLength"
+            android:layout_margin="@dimen/separator"
+            app:alignItems="center">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:gravity="center_horizontal|center_vertical"
+                android:text="用户照片"
+                android:textSize="@dimen/opTextSize3" />
+
+            <ImageView
+                android:id="@+id/button_2"
+                android:layout_width="@dimen/textLength"
+                android:layout_height="@dimen/textLength"
+                android:layout_marginLeft="@dimen/separator"
+                android:src="@drawable/add" />
+        </com.google.android.flexbox.FlexboxLayout>
+
+        <com.google.android.flexbox.FlexboxLayout
+            android:id="@+id/img_container2"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="@dimen/separator"
+            app:alignItems="center"
+            app:flexWrap="wrap"
+            app:justifyContent="center">
+
+            <ImageView
+                android:id="@+id/img_2"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                app:layout_maxHeight="250dp" />
+        </com.google.android.flexbox.FlexboxLayout>
+
+        <com.google.android.flexbox.FlexboxLayout
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/textLength"
+            android:layout_margin="@dimen/separator"
+            app:alignItems="center">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:gravity="center_horizontal|center_vertical"
+                android:text="程度"
+                android:textSize="@dimen/opTextSize3" />
+        </com.google.android.flexbox.FlexboxLayout>
+
+        <com.google.android.flexbox.FlexboxLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="@dimen/separator"
+            android:layout_marginRight="@dimen/separator"
+            app:alignItems="center"
+            app:justifyContent="space_between">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginRight="1dp"
+                android:text="淡"
+                android:textSize="@dimen/opTextSize2" />
+
+            <hearsilent.discreteslider.DiscreteSlider
+                android:id="@+id/value"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                app:ds_count="100"
+                app:ds_inactiveTrackColor="#3DD81B60"
+                app:ds_mode="normal"
+                app:ds_thumbColor="#D81B60"
+                app:ds_thumbPressedColor="#1FD81B60"
+                app:ds_thumbRadius="6dp"
+                app:ds_tickMarkColor="#3DFFFFFF"
+                app:ds_tickMarkDashLength="1dp"
+                app:ds_tickMarkInactiveColor="#1FD81B60"
+                app:ds_tickMarkPatterns="dot,dash"
+                app:ds_tickMarkStep="1"
+                app:ds_trackColor="#D81B60"
+                app:ds_trackWidth="4dp"
+                app:ds_valueLabelMode="none"
+                app:layout_flexGrow="1" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="1dp"
+                android:text="浓"
+                android:textSize="@dimen/opTextSize2" />
+        </com.google.android.flexbox.FlexboxLayout>
+
+        <RadioGroup
+            android:id="@+id/radio_group"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="@dimen/separator">
+
+            <RadioButton
+                android:id="@+id/radio_1"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="全局化妆"
+                android:textSize="@dimen/opTextSize2" />
+
+            <RadioButton
+                android:id="@+id/radio_2"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="局部化妆"
+                android:textSize="@dimen/opTextSize2" />
+        </RadioGroup>
+
+        <CheckBox
+            android:id="@+id/check_1"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="@dimen/textLength"
+            android:text="眼影"
+            android:textSize="@dimen/opTextSize" />
+
+        <CheckBox
+            android:id="@+id/check_2"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="@dimen/textLength"
+            android:text="嘴唇"
+            android:textSize="@dimen/opTextSize" />
+
+        <CheckBox
+            android:id="@+id/check_3"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="@dimen/textLength"
+            android:text="面部"
+            android:textSize="@dimen/opTextSize" />
+
+        <com.google.android.flexbox.FlexboxLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/textLength"
+            app:alignItems="center"
+            app:justifyContent="center">
+
+            <Button
+                android:id="@+id/submit"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:paddingLeft="@dimen/textLength"
+                android:paddingTop="@dimen/separator"
+                android:paddingRight="@dimen/textLength"
+                android:paddingBottom="@dimen/separator"
+                android:text="应用"
+                android:textSize="@dimen/opTextSize3" />
+        </com.google.android.flexbox.FlexboxLayout>
+
+        <LinearLayout
+            android:id="@+id/resultLayout"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <com.google.android.flexbox.FlexboxLayout
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/textLength"
+                android:layout_margin="@dimen/separator"
+                app:alignItems="center">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:gravity="center_horizontal|center_vertical"
+                    android:text="结果图"
+                    android:textSize="@dimen/opTextSize3" />
+
+                <ImageView
+                    android:id="@+id/button_result"
+                    android:layout_width="@dimen/textLength"
+                    android:layout_height="@dimen/textLength"
+                    android:layout_marginLeft="@dimen/separator"
+                    android:src="@drawable/download" />
+            </com.google.android.flexbox.FlexboxLayout>
+
+            <com.google.android.flexbox.FlexboxLayout
+                android:id="@+id/result_container"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="@dimen/separator"
+                app:alignItems="center"
+                app:flexWrap="wrap"
+                app:justifyContent="center">
+
+                <ImageView
+                    android:id="@+id/img_result"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    app:layout_maxHeight="250dp" />
+            </com.google.android.flexbox.FlexboxLayout>
+        </LinearLayout>
+    </LinearLayout>
+</ScrollView>

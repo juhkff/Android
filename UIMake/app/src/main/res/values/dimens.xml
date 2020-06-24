@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <dimen name="layout_margin">8dp</dimen>
+    <dimen name="text_margin">16dp</dimen>
+    <dimen name="text_size">20dp</dimen>
+    <dimen name="name_size">14dp</dimen>
+    <dimen name="content_size">16dp</dimen>
+    <dimen name="time_size">12dp</dimen>
+    <dimen name="button_size">15dp</dimen>
+    <dimen name="button_width">60dp</dimen>
+    <dimen name="button_height">30dp</dimen>
+    <dimen name="button_width2">75dp</dimen>
+    <dimen name="button_height2">45dp</dimen>
+    <dimen name="separator">10dp</dimen>
+    <dimen name="opLength">20dp</dimen>
+    <dimen name="opLength2">25dp</dimen>
+    <dimen name="opTextSize">15dp</dimen>
+    <dimen name="opTextSize2">20dp</dimen>
+    <dimen name="opTextSize3">30dp</dimen>
+    <dimen name="textLength">35dp</dimen>
+    <dimen name="textSep">5dp</dimen>
+    <dimen name="textSep2">10dp</dimen>
+    <dimen name="imageLength">40dp</dimen>
+</resources>
